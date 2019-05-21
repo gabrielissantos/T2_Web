@@ -4,8 +4,6 @@ import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.pojo.Cliente;
 import java.sql.SQLException;
 import java.util.List;
-
-//TODO: verificar esses erros
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
