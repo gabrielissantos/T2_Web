@@ -53,7 +53,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
 
         if (dataSource == null) {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
-            String url = "jdbc:derby://localhost:1527/Locacao";
+            String url = "jdbc:derby://localhost:1527/LocacaoT2";
             String user = "root";
             String password = "root";
             dataSource = new DriverManagerDataSource(url, user, password);
