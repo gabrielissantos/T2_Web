@@ -7,7 +7,7 @@
     </h:head>
     <h:body>
         <h:form>
-            <sec:authorize ifAllGranted="ROLE_ADMIN">
+           <!-- <sec:authorize ifAllGranted="ROLE_ADMIN">
 
                 Este conteúdo só será visível para usuários que desempenhem 
                 o papel "ADMIN" <br/><br/>
@@ -22,7 +22,7 @@
 
                 <h:commandLink action="user/index">Área de Usuário</h:commandLink>
                 
-            </sec:authorize>      
+            </sec:authorize>    -->  
             <h:commandLink action="#{clienteBean.lista()}">Cliente: CRUD</h:commandLink><br/>
         </h:form>
     </h:body> 

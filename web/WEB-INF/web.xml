@@ -12,6 +12,7 @@
         <param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
         <param-value>true</param-value>
     </context-param>
+    
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
