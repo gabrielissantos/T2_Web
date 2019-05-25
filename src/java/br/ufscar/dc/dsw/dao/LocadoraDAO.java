@@ -62,9 +62,9 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
 
     //Pega locadora pelo id
     @Override
-    public Locadora get(Long id) {
+    public Locadora get(Long id_locadora) {
         EntityManager em = this.getEntityManager();
-        Locadora locadora = em.find(Locadora.class, id);
+        Locadora locadora = em.find(Locadora.class, id_locadora);
         em.close();
         return locadora;
     }

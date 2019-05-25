@@ -1,16 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
 <html xmlns="http://www.w3.org/1999/xhtml"  
       xmlns:h="http://xmlns.jcp.org/jsf/html"  
       xmlns:f="http://xmlns.jcp.org/jsf/core">  
     <h:head>  
-        <title>#{msg['publisher.list.page.title']}</title>
+        <title>>#{msg['store.list.page.title']}</title>
         <link rel="stylesheet" 
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -20,49 +14,57 @@ and open the template in the editor.
     <h:body>  
         <h:form>  
             <center>  
-                <h2><h:outputText value="#{msg['publisher.list.page.title']}"/></h2>  
+                <h2><h:outputText value="#{msg['store.list.page.title']}"/></h2>  
             </center>  
             <h:dataTable value="#{locadoraBean.locadoras}" var="locadora"   
                          class="table table-striped table-hover table-bordered">  
                 <h:column>  
-                    <f:facet name="header">Id locadora</f:facet>  
-                    <h:outputText value="#{locadora.id}"/>  
+                    <f:facet name="header">#{msg['store.id.label']}</f:facet>  
+                    <h:outputText value="#{locadora.id_locadora}"/>  
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">CNPJ Locadora</f:facet>  
-                    <h:outputText value="#{locadora.cnpj}"/>  
+                    <f:facet name="header">#{msg['store.email.label']}</f:facet>  
+                    <h:outputText value="#{locadora.email_locadora}"/>  
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">Nome Locadora</f:facet>  
-                    <h:outputText value="#{locadora.nome}"/>  
+                    <f:facet name="header">#{msg['store.password.label']}</f:facet>  
+                    <h:outputText value="#{locadora.senha_locadora}"/>  
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">Cidade Locadora</f:facet>  
-                    <h:outputText value="#{locadora.cidade}"/>  
+                    <f:facet name="header">#{msg['store.cnpj.label']}</f:facet>  
+                    <h:outputText value="#{locadora.cpf_locadora}"/>  
                 </h:column>  
+                <h:column>  
+                    <f:facet name="header">#{msg['store.name.label']}</f:facet>  
+                    <h:outputText value="#{locadora.nome_locadora}"/>  
+                </h:column>
+                <h:column>  
+                    <f:facet name="header">#{msg['store.city.label']}</f:facet>  
+                    <h:outputText value="#{locadora.telefone_locadora}"/>  
+                </h:column> 
+                
                 <h:column>  
                     <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locadoraBean.edita(locadora.id)}" 
-                           value="Edita Locadora" class="btn btn-primary">  
+                    <h:commandButton action = "#{locadoraBean.edita(locadora.id_locadora)}" value="#{msg['store.edit.command.label']}"  class="btn btn-primary">  
                     </h:commandButton>  
                 </h:column>  
                 <h:column>  
                     <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locadoraBean.delete(locadora)}" value="Deleta Locadora" 
-                                     onclick="return confirm('Confirmar?');"
+                    <h:commandButton action = "#{locadoraBean.delete(locadora)}" value="#{msg['store.delete.command.label']}" 
+                                     onclick="return confirm('#{msg['confirm.delete']}');"
                                      class="btn btn-danger">  
                     </h:commandButton>  
                 </h:column>  
-            </h:dataTable>  
+            </h:dataTable>
             <center>
                 <h:commandButton action = "#{locadoraBean.cadastra()}"   
-                                 value="Criar Locadora" class="btn btn-primary"></h:commandButton>
+                                 value="#{msg['store.create.command.label']}"  class="btn btn-primary"></h:commandButton>
             </center>
             <br/>
             <center>
                 <h:commandButton action = "#{locadoraBean.volta()}"   
-                                 value="Voltar" class="btn btn-success"></h:commandButton>
+                                 value="#{msg['root.back.label']}"  class="btn btn-success"></h:commandButton>
             </center>
         </h:form>  
-    </h:body>
+    </h:body>  
 </html>

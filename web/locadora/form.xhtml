@@ -1,9 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
 <html xmlns="http://www.w3.org/1999/xhtml"  
@@ -11,7 +5,7 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">  
     <h:head>  
-        <title>#{msg['publisher.form.page.title']}</title>
+        <title>#{msg['client.form.page.title']}</title>
         <link rel="stylesheet" 
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -22,40 +16,73 @@ and open the template in the editor.
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div  class="col-sm-4">  
-                    <h2 style="text-align: center">Locadora</h2>  
+                    <h2 style="text-align: center">">#{msg['book.form.label']}</h2>  
                 </div>  
             </div>  
-            <hr/>  
+            <hr/> 
             <div class="form-group">  
-                <h:outputLabel for="name" class="control-label col-sm-4">Nome Locadora</h:outputLabel>  
+                <h:outputLabel for="email" class="control-label col-sm-4">#{msg['store.email.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="name" value="#{locadoraBean.locadora.nome}" class="form-control"   
-                                 validatorMessage="Requer nome">
+                    <h:inputText id="email_locadora" value="#{locadoraBean.locadora.email_locadora}" class="form-control"   
+                                 validatorMessage=#{msg['store.email.required.message']}>
                         <f:validateRequired/>
-                    </h:inputText>
-                    <h:message for="name"/>
+                    </h:inputText>  
+                    <h:message for="email"/>
+                </div>  
+            </div>  
+            <div class="form-group">  
+                <h:outputLabel for="senha" class="control-label col-sm-4">#{msg['store.password.label']}</h:outputLabel>  
+                <div class="col-sm-4">  
+                    <h:inputText id="senha_locadora" value="#{locadoraBean.locadora.senha_locadora}" class="form-control"   
+                                 validatorMessage="#{msg['store.password.required.message']}">
+                        <f:validateRequired/>
+                    </h:inputText>  
+                    <h:message for="senha"/>
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="country" class="control-label col-sm-4">Cidade locadora</h:outputLabel>  
+                <h:outputLabel for="cpf" class="control-label col-sm-4">#{msg['store.cnpj.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="country" value="#{locadoraBean.locadora.pais}" class="form-control"   
-                                 validatorMessage="#{msg['publisher.country.required.message']}">
+                    <h:inputText id="cpf_locadora" value="#{locadoraBean.locadora.cpf_locadora}" class="form-control"   
+                                   validatorMessage="#{msg['store.cnpj.required.message']}">
                         <f:validateRequired/>
-                    </h:inputText>
-                    <h:message for="country"/>
+                    </h:inputText>  
+                     <h:message for="cpf"/>
                 </div>  
-            </div>  
+            </div>
+            <div class="form-group">  
+                <h:outputLabel for="nome" class="control-label col-sm-4">#{msg['store.name.label']}</h:outputLabel>  
+                <div class="col-sm-4">  
+                    <h:inputText id="nome_locadora" value="#{locadoraBean.locadora.nome_locadora}" class="form-control"   
+                                 validatorMessage="#{msg['store.name.required.message']}">
+                        <f:validateRequired/>
+                    </h:inputText>  
+                    <h:message for="nome"/>
+                </div>  
+            </div>
+            <div class="form-group">  
+                <h:outputLabel for="telefone" class="control-label col-sm-4">#{msg['store.city.label']}</h:outputLabel>  
+                <div class="col-sm-4">  
+                    <h:inputText id="telefone_locadora" value="#{locadoraBean.locadora.telefone_locadora}" class="form-control"   
+                                 validatorMessage="#{msg['store.city.required.message']}">
+                        <f:validateRequired/>
+                    </h:inputText>  
+                    <h:message for="telefone"/>
+                </div>  
+            </div>
+           
+                </div>  
+            </div>
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div class="col-sm-4">  
-                    <div class="col-sm-2">
-                        <h:commandButton value="Salvar" action="#{locadoraBean.salva()}" 
-                               class="btn btn-success" style="width: 80px;"></h:commandButton>  
+                    <div class="col-sm-2">                        
+                        <h:commandButton value="#{msg['store.save.command.label']}" action="#{locadoraBean.salva()}" class="btn btn-primary"   
+                                         style="width: 80px;"></h:commandButton>  
                     </div>  
-                    <br/>  
+                    <br/> 
                     <div class="col-sm-2">  
-                        <h:link outcome="index" value="Listar" class="btn btn-primary" />  
+                        <h:link outcome="index" value="#{msg['store.list.command.label']}" class="btn btn-success" />  
                     </div>  
                 </div>  
             </div>  

@@ -35,9 +35,9 @@ public class LocadoraBean implements Serializable {
     }
 
     //Edição de locadora é realizado no form
-    public String edita(Long id) {
+    public String edita(Long id_locadora) {
         LocadoraDAO dao = new LocadoraDAO();
-        locadora = dao.get(id);
+        locadora = dao.get(id_locadora);
         return "locadora/form.xhtml";
     }
 

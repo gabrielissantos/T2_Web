@@ -21,9 +21,9 @@ public class LocadoraConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        Long id = Long.parseLong(string);
+        Long id_locadora = Long.parseLong(string);
         LocadoraDAO dao = new LocadoraDAO();
-        return dao.get(id);
+        return dao.get(id_locadora);
     }
 
     @Override

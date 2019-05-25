@@ -23,45 +23,45 @@ public class Locadora implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long id_locadora;
     
-    private String cnpj;
+    private String cnpj_locadora;
     
-    private String nome;
+    private String nome_locadora;
     
-    private String cidade;
+    private String cidade_locadora;
 
 
     public Long getId() {
-        return id;
+        return id_locadora;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.id_locadora = id;
     }
 
     public String getCnpj() {
-        return cnpj;
+        return cnpj_locadora;
     }
 
     public void setCnpj(String cnpj) {
-        this.cnpj= cnpj;
+        this.cnpj_locadora= cnpj;
     }
     
     public String getNome() {
-        return nome;
+        return nome_locadora;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome_locadora = nome;
     }    
     
     public String getCidade() {
-        return cidade;
+        return cidade_locadora;
     }
 
     public void setCidade(String cidade) {
-        this.cidade= cidade;
+        this.cidade_locadora= cidade;
     }
 }
 
