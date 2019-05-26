@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  
       xmlns:h="http://xmlns.jcp.org/jsf/html"  
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">  
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">  
     <h:head>  
         <title>#{msg['client.form.page.title']}</title>
         <link rel="stylesheet" 
@@ -43,11 +44,9 @@
             <div class="form-group">  
                 <h:outputLabel for="cpf" class="control-label col-sm-4">#{msg['client.cpf.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="cpf" value="#{clienteBean.cliente.cpf}" class="form-control"   
-                                   validatorMessage="#{msg['client.cpf.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
-                     <h:message for="cpf"/>
+                    <p:inputMask id="cpf" value="#{clienteBean.cliente.cpf}" class="form-control" mask="999.999.999-99"  
+                                 validatorMessage="#{msg['client.cpf.required.message']}"/>
+                    <h:message for="cpf"/>
                 </div>  
             </div>
             <div class="form-group">  
@@ -63,33 +62,33 @@
             <div class="form-group">  
                 <h:outputLabel for="phone" class="control-label col-sm-4">#{msg['client.phone.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="phone" value="#{clienteBean.cliente.telefone}" class="form-control"   
-                                 validatorMessage="#{msg['client.phone.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
+                    <p:inputMask id="phone" value="#{clienteBean.cliente.telefone}" class="form-control" mask="(999)99999-9999"   
+                                 validatorMessage="#{msg['client.phone.required.message']}"/>
                     <h:message for="phone"/>
                 </div>  
             </div>
             <div class="form-group">  
                 <h:outputLabel for="sex" class="control-label col-sm-4">#{msg['client.sex.label']}</h:outputLabel>  
-                <div class="col-sm-4">  
-                    <h:inputText id="sex" value="#{clienteBean.cliente.sexo}" class="form-control"   
-                                 validatorMessage="#{msg['client.sex.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
-                    <h:message for="sex"/>
+                <div class="col-sm-4"> 
+                    
+                    <p:selectOneMenu id="console" value="#{clienteBean.cliente.sexo}" style="width:125px">
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+                        <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                        <f:selectItem itemLabel="Outros" itemValue="Outros" />
+                    </p:selectOneMenu>
                 </div>  
             </div>
+            
             <div class="form-group">  
                 <h:outputLabel for="birth" class="control-label col-sm-4">#{msg['client.birth.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="birth" value="#{clienteBean.cliente.nascimento}" class="form-control"   
-                                 validatorMessage="#{msg['client.birth.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
+                    <p:inputMask id="birth" value="#{clienteBean.cliente.nascimento}" class="form-control"  mask="99/99/9999" 
+                                 validatorMessage="#{msg['client.birth.required.message']}"/>
                     <h:message for="birth"/>
                 </div>  
             </div>
+            
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div class="col-sm-4">  
