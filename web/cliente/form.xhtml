@@ -16,14 +16,14 @@
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div  class="col-sm-4">  
-                    <h2 style="text-align: center">">#{msg['book.form.label']}</h2>  
+                    <h2 style="text-align: center">">#{msg['client.form.label']}</h2>  
                 </div>  
             </div>  
             <hr/> 
             <div class="form-group">  
                 <h:outputLabel for="email" class="control-label col-sm-4">#{msg['client.email.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="email_cliente" value="#{clienteBean.cliente.email_cliente}" class="form-control"   
+                    <h:inputText id="email" value="#{clienteBean.cliente.email}" class="form-control"   
                                  validatorMessage=#{msg['client.email.required.message']}>
                         <f:validateRequired/>
                     </h:inputText>  
@@ -31,19 +31,19 @@
                 </div>  
             </div>  
             <div class="form-group">  
-                <h:outputLabel for="senha" class="control-label col-sm-4">#{msg['client.password.label']}</h:outputLabel>  
+                <h:outputLabel for="password" class="control-label col-sm-4">#{msg['client.password.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="senha_cliente" value="#{clienteBean.cliente.senha_cliente}" class="form-control"   
+                    <h:inputText id="password" value="#{clienteBean.cliente.senha}" class="form-control"   
                                  validatorMessage="#{msg['client.password.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="senha"/>
+                    <h:message for="password"/>
                 </div>  
             </div>
             <div class="form-group">  
                 <h:outputLabel for="cpf" class="control-label col-sm-4">#{msg['client.cpf.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="cpf_cliente" value="#{clienteBean.cliente.cpf_cliente}" class="form-control"   
+                    <h:inputText id="cpf" value="#{clienteBean.cliente.cpf}" class="form-control"   
                                    validatorMessage="#{msg['client.cpf.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
@@ -51,43 +51,43 @@
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="nome" class="control-label col-sm-4">#{msg['client.name.label']}</h:outputLabel>  
+                <h:outputLabel for="name" class="control-label col-sm-4">#{msg['client.name.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="nome_cliente" value="#{clienteBean.cliente.nome_cliente}" class="form-control"   
+                    <h:inputText id="name" value="#{clienteBean.cliente.nome}" class="form-control"   
                                  validatorMessage="#{msg['client.name.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="nome"/>
+                    <h:message for="name"/>
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="telefone" class="control-label col-sm-4">#{msg['client.phone.label']}</h:outputLabel>  
+                <h:outputLabel for="phone" class="control-label col-sm-4">#{msg['client.phone.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="telefone_cliente" value="#{clienteBean.cliente.telefone_cliente}" class="form-control"   
+                    <h:inputText id="phone" value="#{clienteBean.cliente.telefone}" class="form-control"   
                                  validatorMessage="#{msg['client.phone.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="telefone"/>
+                    <h:message for="phone"/>
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="sexo" class="control-label col-sm-4">#{msg['client.sex.label']}</h:outputLabel>  
+                <h:outputLabel for="sex" class="control-label col-sm-4">#{msg['client.sex.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="sexo_cliente" value="#{clienteBean.cliente.sexo_cliente}" class="form-control"   
+                    <h:inputText id="sex" value="#{clienteBean.cliente.sexo}" class="form-control"   
                                  validatorMessage="#{msg['client.sex.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="sexo"/>
+                    <h:message for="sex"/>
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="nascimento" class="control-label col-sm-4">#{msg['client.birth.label']}</h:outputLabel>  
+                <h:outputLabel for="birth" class="control-label col-sm-4">#{msg['client.birth.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="nascimento_cliente" value="#{clienteBean.cliente.nascimento_cliente}" class="form-control"   
+                    <h:inputText id="birth" value="#{clienteBean.cliente.nascimento}" class="form-control"   
                                  validatorMessage="#{msg['client.birth.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="nascimento"/>
+                    <h:message for="birth"/>
                 </div>  
             </div>
             <div class="form-group">  

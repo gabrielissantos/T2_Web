@@ -19,49 +19,63 @@ import javax.persistence.Id;
 
 @Entity
 @Cacheable(value = false)
-public class Locadora implements Serializable {
+public class Locadora extends Usuario implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id_locadora;
+    private Long id;
     
-    private String cnpj_locadora;
+    private String cnpj;
     
-    private String nome_locadora;
+    private String nome;
     
-    private String cidade_locadora;
+    private String cidade;
 
 
     public Long getId() {
-        return id_locadora;
+        return id;
     }
 
     public void setId(Long id) {
-        this.id_locadora = id;
+        this.id = id;
     }
 
     public String getCnpj() {
-        return cnpj_locadora;
+        return cnpj;
     }
 
     public void setCnpj(String cnpj) {
-        this.cnpj_locadora= cnpj;
+        this.cnpj= cnpj;
     }
     
     public String getNome() {
-        return nome_locadora;
+        return nome;
     }
 
     public void setNome(String nome) {
-        this.nome_locadora = nome;
+        this.nome = nome;
     }    
     
     public String getCidade() {
-        return cidade_locadora;
+        return cidade;
     }
 
     public void setCidade(String cidade) {
-        this.cidade_locadora= cidade;
+        this.cidade= cidade;
     }
+    
+     @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (!(obj instanceof Locadora))
+		return false;
+	Locadora other = (Locadora) obj;
+	return other.nome.equals(this.nome);
+    }
+    
+    
 }
 

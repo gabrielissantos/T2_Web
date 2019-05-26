@@ -18,9 +18,9 @@ public class ClienteDAO extends GenericDAO<Cliente>{
     }
     
     @Override
-    public Cliente get(Long id_cliente) {
+    public Cliente get(Long id) {
         EntityManager em = this.getEntityManager();
-        Cliente cliente = em.find(Cliente.class, id_cliente);
+        Cliente cliente = em.find(Cliente.class, id);
         em.close();
         return cliente;
     }
@@ -49,7 +49,7 @@ public class ClienteDAO extends GenericDAO<Cliente>{
     public void delete(Cliente cliente) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
-        cliente = em.getReference(Cliente.class, cliente.getId_cliente());
+        cliente = em.getReference(Cliente.class, cliente.getId());
         tx.begin();
         em.remove(cliente);
         tx.commit();

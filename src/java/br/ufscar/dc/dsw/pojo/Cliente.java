@@ -7,82 +7,66 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Cliente implements Serializable {
+public class Cliente extends Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id_cliente;
+    private Long id;
     
-    private String email_cliente;
-    private String senha_cliente;
-    private String cpf_cliente;
-    private String nome_cliente;
-    private String telefone_cliente;
-    private String sexo_cliente;
-    private String nascimento_cliente;
+    private String email;
+    private String senha;
+    private String cpf;
+    private String nome;
+    private String telefone;
+    private String sexo;
+    private String nascimento;
 
-    public Long getId_cliente() {
-        return id_cliente;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_cliente(Long id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setId_cliente(Long id) {
+        this.id= id;
     }
 
-    public String getEmail_cliente() {
-        return email_cliente;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setEmail_cliente(String email_cliente) {
-        this.email_cliente = email_cliente;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getSenha_cliente() {
-        return senha_cliente;
+    public String getNome() {
+        return nome;
     }
 
-    public void setSenha_cliente(String senha_cliente) {
-        this.senha_cliente = senha_cliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getCpf_cliente() {
-        return cpf_cliente;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setCpf_cliente(String cpf_cliente) {
-        this.cpf_cliente = cpf_cliente;
+    public void setTelefone_cliente(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getNome_cliente() {
-        return nome_cliente;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setNome_cliente(String nome_cliente) {
-        this.nome_cliente = nome_cliente;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
-    public String getTelefone_cliente() {
-        return telefone_cliente;
+    public String getNascimento() {
+        return nascimento;
     }
 
-    public void setTelefone_cliente(String telefone_cliente) {
-        this.telefone_cliente = telefone_cliente;
-    }
-
-    public String getSexo_cliente() {
-        return sexo_cliente;
-    }
-
-    public void setSexo_cliente(String sexo_cliente) {
-        this.sexo_cliente = sexo_cliente;
-    }
-
-    public String getNascimento_cliente() {
-        return nascimento_cliente;
-    }
-
-    public void setNascimento_cliente(String nascimento_cliente) {
-        this.nascimento_cliente = nascimento_cliente;
+    public void setNascimento_cliente(String nascimento) {
+        this.nascimento = nascimento;
     }
 
 }

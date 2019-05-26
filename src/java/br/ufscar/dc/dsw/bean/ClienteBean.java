@@ -22,15 +22,15 @@ public class ClienteBean {
         return "form.xhtml";
     }
 
-    public String edita(Long id_cliente) {
+    public String edita(Long id) {
         ClienteDAO dao = new ClienteDAO();
-        cliente = dao.get(id_cliente);
+        cliente = dao.get(id);
         return "form.xhtml";
     }
 
     public String salva() {
         ClienteDAO dao = new ClienteDAO();
-        if (cliente.getId_cliente() == null) {
+        if (cliente.getId() == null) {
             dao.save(cliente);
         } else {
             dao.update(cliente);

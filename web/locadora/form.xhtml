@@ -16,34 +16,34 @@
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div  class="col-sm-4">  
-                    <h2 style="text-align: center">">#{msg['book.form.label']}</h2>  
+                    <h2 style="text-align: center">#{msg['store.form.label']}</h2>  
                 </div>  
             </div>  
             <hr/> 
             <div class="form-group">  
                 <h:outputLabel for="email" class="control-label col-sm-4">#{msg['store.email.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="email_locadora" value="#{locadoraBean.locadora.email_locadora}" class="form-control"   
-                                 validatorMessage=#{msg['store.email.required.message']}>
+                    <h:inputText id="email" value="#{locadoraBean.locadora.email}" class="form-control"   
+                                 validatorMessage="#{msg['store.email.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
                     <h:message for="email"/>
                 </div>  
             </div>  
             <div class="form-group">  
-                <h:outputLabel for="senha" class="control-label col-sm-4">#{msg['store.password.label']}</h:outputLabel>  
+                <h:outputLabel for="password" class="control-label col-sm-4">#{msg['store.password.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="senha_locadora" value="#{locadoraBean.locadora.senha_locadora}" class="form-control"   
+                    <h:inputText id="password" value="#{locadoraBean.locadora.senha}" class="form-control"   
                                  validatorMessage="#{msg['store.password.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="senha"/>
+                    <h:message for="password"/>
                 </div>  
             </div>
             <div class="form-group">  
                 <h:outputLabel for="cpf" class="control-label col-sm-4">#{msg['store.cnpj.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="cpf_locadora" value="#{locadoraBean.locadora.cpf_locadora}" class="form-control"   
+                    <h:inputText id="cpf" value="#{locadoraBean.locadora.cnpj}" class="form-control"   
                                    validatorMessage="#{msg['store.cnpj.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
@@ -51,28 +51,26 @@
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="nome" class="control-label col-sm-4">#{msg['store.name.label']}</h:outputLabel>  
+                <h:outputLabel for="name" class="control-label col-sm-4">#{msg['store.name.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="nome_locadora" value="#{locadoraBean.locadora.nome_locadora}" class="form-control"   
+                    <h:inputText id="name" value="#{locadoraBean.locadora.nome}" class="form-control"   
                                  validatorMessage="#{msg['store.name.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="nome"/>
+                    <h:message for="name"/>
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="telefone" class="control-label col-sm-4">#{msg['store.city.label']}</h:outputLabel>  
+                <h:outputLabel for="phone" class="control-label col-sm-4">#{msg['store.city.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="telefone_locadora" value="#{locadoraBean.locadora.telefone_locadora}" class="form-control"   
+                    <h:inputText id="phone" value="#{locadoraBean.locadora.cidade}" class="form-control"   
                                  validatorMessage="#{msg['store.city.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
-                    <h:message for="telefone"/>
+                    <h:message for="phone"/>
                 </div>  
             </div>
            
-                </div>  
-            </div>
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div class="col-sm-4">  

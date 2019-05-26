@@ -31,14 +31,14 @@ public class LocadoraBean implements Serializable {
     //Cadastro de locadora é realizado no form
     public String cadastra() {
         locadora = new Locadora();
-        return "locadora/form.xhtml";
+        return "form.xhtml";
     }
 
     //Edição de locadora é realizado no form
-    public String edita(Long id_locadora) {
+    public String edita(Long id) {
         LocadoraDAO dao = new LocadoraDAO();
-        locadora = dao.get(id_locadora);
-        return "locadora/form.xhtml";
+        locadora = dao.get(id);
+        return "form.xhtml";
     }
 
     //Após salvar, o site é direcionado para o index.
