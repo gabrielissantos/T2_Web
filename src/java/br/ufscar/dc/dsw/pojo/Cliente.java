@@ -1,28 +1,26 @@
 package br.ufscar.dc.dsw.pojo;
 
 import java.io.Serializable;
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
+@Cacheable(value = false)
 public class Cliente extends Usuario implements Serializable {
 
     private Long id;
-    
-    private String email;
-    private String senha;
     private String cpf;
     private String nome;
     private String telefone;
     private String sexo;
     private String nascimento;
 
+     @Override
     public Long getId() {
         return super.getId();
     }
 
+  
     public void setId_cliente(Long id) {
         this.id= id;
     }
@@ -47,7 +45,7 @@ public class Cliente extends Usuario implements Serializable {
         return telefone;
     }
 
-    public void setTelefone_cliente(String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -63,7 +61,7 @@ public class Cliente extends Usuario implements Serializable {
         return nascimento;
     }
 
-    public void setNascimento_cliente(String nascimento) {
+    public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
 

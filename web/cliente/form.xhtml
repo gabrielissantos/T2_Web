@@ -16,7 +16,7 @@
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div  class="col-sm-4">  
-                    <h2 style="text-align: center">">#{msg['client.form.label']}</h2>  
+                    <h2 style="text-align: center">#{msg['client.form.label']}</h2>  
                 </div>  
             </div>  
             <hr/> 
@@ -24,7 +24,7 @@
                 <h:outputLabel for="email" class="control-label col-sm-4">#{msg['client.email.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
                     <h:inputText id="email" value="#{clienteBean.cliente.email}" class="form-control"   
-                                 validatorMessage=#{msg['client.email.required.message']}>
+                                 validatorMessage="#{msg['client.email.required.message']}">
                         <f:validateRequired/>
                     </h:inputText>  
                     <h:message for="email"/>

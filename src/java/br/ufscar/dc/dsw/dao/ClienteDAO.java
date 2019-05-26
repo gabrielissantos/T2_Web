@@ -9,23 +9,6 @@ import javax.persistence.Query;
 public class ClienteDAO extends GenericDAO<Cliente>{
     
     @Override
-    public List<Cliente> getAll() {
-        EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from Cliente l", Cliente.class);
-        List<Cliente> clientes = q.getResultList();
-        em.close();
-        return clientes;
-    }
-    
-    @Override
-    public Cliente get(Long id) {
-        EntityManager em = this.getEntityManager();
-        Cliente cliente = em.find(Cliente.class, id);
-        em.close();
-        return cliente;
-    }
-    
-    @Override
     public void save(Cliente cliente) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -36,13 +19,12 @@ public class ClienteDAO extends GenericDAO<Cliente>{
     }
     
     @Override
-    public void update(Cliente cliente) {
+    public List<Cliente> getAll() {
         EntityManager em = this.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        em.merge(cliente);
-        tx.commit();
+        Query q = em.createQuery("select l from Cliente l", Cliente.class);
+        List<Cliente> clientes = q.getResultList();
         em.close();
+        return clientes;
     }
     
     @Override
@@ -54,4 +36,24 @@ public class ClienteDAO extends GenericDAO<Cliente>{
         em.remove(cliente);
         tx.commit();
     }
+    
+     @Override
+    public void update(Cliente cliente) {
+        EntityManager em = this.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.merge(cliente);
+        tx.commit();
+        em.close();
+    }
+    
+    @Override
+    public Cliente get(Long id) {
+        EntityManager em = this.getEntityManager();
+        Cliente cliente = em.find(Cliente.class, id);
+        em.close();
+        return cliente;
+    } 
+    
+    
 }
