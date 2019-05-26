@@ -9,8 +9,6 @@ import javax.persistence.Id;
 @Entity
 public class Cliente extends Usuario implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     private String email;
@@ -22,7 +20,7 @@ public class Cliente extends Usuario implements Serializable {
     private String nascimento;
 
     public Long getId() {
-        return id;
+        return super.getId();
     }
 
     public void setId_cliente(Long id) {
