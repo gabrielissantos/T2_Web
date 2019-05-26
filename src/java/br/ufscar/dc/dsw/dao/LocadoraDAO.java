@@ -10,6 +10,7 @@ package br.ufscar.dc.dsw.dao;
  * @author Bianca
  */
 import br.ufscar.dc.dsw.pojo.Locadora;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -38,6 +39,14 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         return locadoras;
     }
 
+   public List<Locadora> getbyCidade(String cidade) {
+        EntityManager em = this.getEntityManager();
+        Query q = em.createQuery("select l from Locadora l where l.cidade = '"+cidade+"'", Locadora.class);
+        List<Locadora> locadora = q.getResultList();
+        em.close();
+        return locadora;
+    }
+
     //Deleta Locadora pelo id.
     @Override
     public void delete(Locadora locadora) {
@@ -49,7 +58,7 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         tx.commit();
     }
 
-     //Atualiza locadora 
+    //Atualiza locadora 
     @Override
     public void update(Locadora locadora) {
         EntityManager em = this.getEntityManager();
@@ -69,4 +78,3 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         return locadora;
     }
 }
-

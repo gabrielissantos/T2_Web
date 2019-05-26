@@ -63,9 +63,27 @@ public class LocadoraBean implements Serializable {
         return "/index.xhtml?faces-redirect=true";
     }
     
+    
+ 
+    
     public List<Locadora> getLocadoras() throws SQLException {
         LocadoraDAO dao = new LocadoraDAO();
         return dao.getAll();
+    }
+    private String cidade;
+    
+    public void setCidade(String cidade_selecionada) {
+        this.cidade = cidade_selecionada;
+    }
+     
+    public String getCidade() {
+        return cidade;
+    }
+    
+   
+     public List<Locadora> getLocadorabyCidade() throws SQLException {
+        LocadoraDAO dao = new LocadoraDAO();
+        return dao.getbyCidade(cidade);
     }
 
     public Locadora getLocadora() {
