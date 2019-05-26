@@ -21,12 +21,14 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LocadoraBean implements Serializable {
 
+    private String cidade;
     private Locadora locadora;
 
     //Lista de locadora é realizado no index.html
     public String lista() {
         return "locadora/index.xhtml";
     }
+     
 
     //Cadastro de locadora é realizado no form
     public String cadastra() {
@@ -68,12 +70,15 @@ public class LocadoraBean implements Serializable {
     
     public List<Locadora> getLocadoras() throws SQLException {
         LocadoraDAO dao = new LocadoraDAO();
-        return dao.getAll();
+        if (cidade == null || cidade.equals(" "))
+            return dao.getAll();     
+        else
+            return dao.getbyCidade(cidade);
     }
-    private String cidade;
     
-    public void setCidade(String cidade_selecionada) {
-        this.cidade = cidade_selecionada;
+    
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
      
     public String getCidade() {
@@ -81,10 +86,10 @@ public class LocadoraBean implements Serializable {
     }
     
    
-     public List<Locadora> getLocadorabyCidade() throws SQLException {
-        LocadoraDAO dao = new LocadoraDAO();
-        return dao.getbyCidade(cidade);
-    }
+//     public List<Locadora> getLocadorabyCidade() throws SQLException {
+//        LocadoraDAO dao = new LocadoraDAO();
+//        return dao.getbyCidade(cidade);
+//    }
 
     public Locadora getLocadora() {
         return locadora;

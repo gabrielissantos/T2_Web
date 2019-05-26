@@ -18,9 +18,10 @@
                 <h2><h:outputText value="#{msg['store.list.page.title']}"/></h2>  
             </center> 
 
+            <p:outputLabel for="city" value="Filtro por cidade: " />
             <p:selectOneMenu id="city" value="#{locadoraBean.cidade}"  editable="true">
                 <f:selectItem itemLabel="Select One" itemValue="" />
-                <f:selectItems value="#{locadoraBean.locadora.cidade}"/>
+                <f:selectItems value="#{locadora.cidade}"/>
             </p:selectOneMenu>
 
 
