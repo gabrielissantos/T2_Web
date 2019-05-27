@@ -13,6 +13,7 @@ import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.pojo.Locadora;
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -28,7 +29,10 @@ public class LocadoraBean implements Serializable {
     public String lista() {
         return "locadora/index.xhtml";
     }
-     
+
+    public String listaCidade() {
+        return "index.xhtml";
+    }
 
     //Cadastro de locadora é realizado no form
     public String cadastra() {
@@ -64,34 +68,45 @@ public class LocadoraBean implements Serializable {
     public String volta() {
         return "/index.xhtml?faces-redirect=true";
     }
-    
-    
- 
-    
+
     public List<Locadora> getLocadoras() throws SQLException {
         LocadoraDAO dao = new LocadoraDAO();
-        if (cidade == null || cidade.equals(" "))
-            return dao.getAll();     
-        else
+        if (cidade == null || cidade.equals(" ")) {
+            return dao.getAll();
+        } else {
             return dao.getbyCidade(cidade);
+        }
     }
-    
-    
+
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-     
+
     public String getCidade() {
         return cidade;
     }
-    
-   
+
 //     public List<Locadora> getLocadorabyCidade() throws SQLException {
 //        LocadoraDAO dao = new LocadoraDAO();
 //        return dao.getbyCidade(cidade);
 //    }
-
     public Locadora getLocadora() {
         return locadora;
     }
+
+    public List<Locadora> autoComplete(String query) {
+        LocadoraDAO dao = new LocadoraDAO();
+        List<Locadora> locadoras = dao.getAll();
+        List<Locadora> filteredCidades = new ArrayList<Locadora>();
+
+        for (int i = 0; i < locadoras.size(); i++) {
+            Locadora skin = locadoras.get(i);
+            if (skin.getCidade().toLowerCase().contains(query)) {
+                filteredCidades.add(skin);
+            }
+        }
+
+        return filteredCidades;
+    }
+
 }
