@@ -77,7 +77,7 @@
                 </h:column>  
             </h:dataTable>
             <center>
-		<sec:authorize ifAllGranted="ROLE_LOCADORA">
+		<sec:authorize ifAllGranted="ROLE_ADMIN">
                 <h:commandButton action = "#{locadoraBean.cadastra()}"   
                                  value="#{msg['store.create.command.label']}"  class="btn btn-primary"></h:commandButton>
             	</sec:authorize>

@@ -1,5 +1,7 @@
 package br.ufscar.dc.dsw.dao;
 
+import br.ufscar.dc.dsw.pojo.Cliente;
+import br.ufscar.dc.dsw.pojo.Locadora;
 import br.ufscar.dc.dsw.pojo.Papel;
 import br.ufscar.dc.dsw.pojo.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -48,7 +50,7 @@ public class CriaUsuarios {
 	// Teste Cliente
 
 	Cliente c = new Cliente();
-        c.setId_cliente(1111111);
+        c.setId(11111L);
         c.setCpf("44411122200");
         c.setNome("Ana Silva");
 	c.setTelefone("38881111");
@@ -68,7 +70,7 @@ public class CriaUsuarios {
 
 	// Teste Locadora
 	Locadora l = new Locadora();
-        l.setId(222222);
+        l.setId(22222L);
         l.setNome("Locadora Top");
         l.setCidade("São Carlos");
         l.setCnpj("7777888899");
