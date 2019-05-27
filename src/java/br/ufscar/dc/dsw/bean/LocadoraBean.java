@@ -65,8 +65,11 @@ public class LocadoraBean implements Serializable {
         papelDAO.save(p1);
         if (locadora.getId() == null) {
             dao.save(locadora);
+             locadora.getPapel().add(p1);
+            dao.update(locadora);
         } else {
             dao.update(locadora);
+            
         }
         return "index.xhtml";
     }
