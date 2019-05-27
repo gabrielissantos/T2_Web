@@ -30,7 +30,7 @@
             
             <p:outputLabel value="Pesquisar por cidade:" for="filter_cidade" />
         <p:autoComplete id="filter_cidade" dropdown="true" value="#{locadoraBean.cidade}" completeMethod="#{locadoraBean.autoComplete}" />
-       
+        <br/>
         <h:commandButton value="Pesquisar" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
                                          style="width: 80px;"></h:commandButton> 
         

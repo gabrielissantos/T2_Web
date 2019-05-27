@@ -22,7 +22,7 @@ public class CriaUsuarios {
         Usuario u1 = new Usuario();
         u1.setEmail("admin@admin");
         u1.setSenha(encoder.encode("admin"));
-        u1.setAtivo(true);
+        u1.setAtivo(1);
         usuarioDAO.save(u1);
 
         Papel p1 = new Papel();
@@ -37,7 +37,7 @@ public class CriaUsuarios {
         Usuario u2 = new Usuario();
         u2.setEmail("user@user");
         u2.setSenha(encoder.encode("user"));
-        u2.setAtivo(true);
+        u2.setAtivo(1);
         usuarioDAO.save(u2);
 
         Papel p2 = new Papel();
@@ -58,7 +58,7 @@ public class CriaUsuarios {
         c.setNascimento("05/05/1980");
         c.setEmail("cliente@cliente");
         c.setSenha(encoder.encode("cliente"));
-        c.setAtivo(true);
+        c.setAtivo(1);
         clienteDAO.save(c);
 
         Papel p3 = new Papel();
@@ -76,7 +76,7 @@ public class CriaUsuarios {
         l.setCnpj("7777888899");
         l.setEmail("locadora@locadora");
         l.setSenha(encoder.encode("locadora"));
-        l.setAtivo(true);
+        l.setAtivo(1);
         locadoraDAO.save(l);
 
         Papel p4 = new Papel();

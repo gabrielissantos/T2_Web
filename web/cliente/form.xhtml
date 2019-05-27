@@ -35,7 +35,7 @@
                 <h:outputLabel for="password" class="control-label col-sm-4">#{msg['client.password.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
                     <h:inputText id="password" value="#{clienteBean.cliente.senha}" class="form-control"   
-                                 validatorMessage="#{msg['client.password.required.message']}">
+                                 validatorMessage="#{msg['client.password.required.message']}" a:type="password">
                         <f:validateRequired/>
                     </h:inputText>  
                     <h:message for="password"/>
