@@ -12,6 +12,8 @@ public class CriaUsuarios {
 
         PapelDAO papelDAO = new PapelDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
+	ClienteDAO clienteDAO = new ClienteDAO();
+	LocadoraDAO locadoraDAO = new LocadoraDAO();
 
         // Criando Usuario admin com papel ROLE_ADMIN
      
@@ -42,5 +44,47 @@ public class CriaUsuarios {
 
         u2.getPapel().add(p2);
         usuarioDAO.update(u2);
+
+	// Teste Cliente
+
+	Cliente c = new Cliente();
+        c.setId_cliente(1111111);
+        c.setCpf("44411122200");
+        c.setNome("Ana Silva");
+	c.setTelefone("38881111");
+        c.setSexo("feminino");
+        c.setNascimento("05/05/1980");
+        c.setEmail("cliente@cliente");
+        c.setSenha(encoder.encode("cliente"));
+        c.setAtivo(true);
+        clienteDAO.save(c);
+
+        Papel p3 = new Papel();
+        p3.setNome("ROLE_CLIENTE");
+        papelDAO.save(p3);
+
+        c.getPapel().add(p3);
+        clienteDAO.update(c);
+
+	// Teste Locadora
+	Locadora l = new Locadora();
+        l.setId(222222);
+        l.setNome("Locadora Top");
+        l.setCidade("São Carlos");
+        l.setCnpj("7777888899");
+        l.setEmail("locadora@locadora");
+        l.setSenha(encoder.encode("locadora"));
+        l.setAtivo(true);
+        locadoraDAO.save(l);
+
+        Papel p4 = new Papel();
+        p4.setNome("ROLE_LOCADORA");
+        papelDAO.save(p4);
+
+        l.getPapel().add(p4);
+        locadoraDAO.update(l);
+
+
     }
 }
+
