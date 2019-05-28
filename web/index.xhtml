@@ -24,12 +24,10 @@
                  <h:commandLink action="user/index">Área de Usuário</h:commandLink>
                  
              </sec:authorize>    -->  
-            <sec:authorize ifAllGranted="ROLE_ADMIN">
                 <h:commandLink action="#{clienteBean.lista()}">#{msg['client.label']}:  CRUD</h:commandLink><br/>
                 <h:commandLink action="#{locadoraBean.lista()}">#{msg['store.label']}:  CRUD</h:commandLink><br/>
                 <h:commandLink action="#{locacaoBean.lista()}">#{msg['location.label']}:  CRUD</h:commandLink><br/>
-            </sec:authorize>
-
+       
 
 
 

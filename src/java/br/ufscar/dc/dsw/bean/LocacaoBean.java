@@ -25,7 +25,7 @@ public class LocacaoBean implements Serializable {
     
     //Lista de locacoes é realizado no index.html
     public String lista() {
-        return "locacao/index.xhtml";
+        return "locacao/index.xhtml?faces-redirect=true";
     }
     
      //Cadastro de locacoes é realizado no form
