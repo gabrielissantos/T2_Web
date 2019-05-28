@@ -34,7 +34,7 @@
                 <h:outputLabel for="password" class="control-label col-sm-4">#{msg['store.password.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
                     <h:inputText id="password" value="#{locadoraBean.locadora.senha}" class="form-control"   
-                                 validatorMessage="#{msg['store.password.required.message']}">
+                                 validatorMessage="#{msg['store.password.required.message']}" a:type="password">
                         <f:validateRequired/>
                     </h:inputText>  
                     <h:message for="password"/>

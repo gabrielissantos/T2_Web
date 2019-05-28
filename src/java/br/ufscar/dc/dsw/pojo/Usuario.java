@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
 @Entity
+@Inheritance (strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
 
     @Id
@@ -17,7 +20,7 @@ public class Usuario implements Serializable {
                 
     private String email;
     private String senha;
-    private boolean ativo;
+    private int ativo;
     
     @ManyToMany
     private List<Papel> papel;
@@ -46,11 +49,18 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public boolean isAtivo() {
+    public int getAtivo(int ativo) {
         return ativo;
     }
+    
+//     public boolean getAtivo(int ativo) {
+//        if (ativo == 1)
+//            return true;
+//        else
+//            return false;
+//    }
 
-    public void setAtivo(boolean ativo) {
+    public void setAtivo(int ativo) {
         this.ativo = ativo;
     }
 

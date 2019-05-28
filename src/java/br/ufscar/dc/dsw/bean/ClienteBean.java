@@ -1,21 +1,26 @@
 package br.ufscar.dc.dsw.bean;
 
 import br.ufscar.dc.dsw.dao.ClienteDAO;
+import br.ufscar.dc.dsw.dao.PapelDAO;
 import br.ufscar.dc.dsw.pojo.Cliente;
+import br.ufscar.dc.dsw.pojo.Papel;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
 @SessionScoped
 public class ClienteBean implements Serializable {
 
+    private static BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     private Cliente cliente;
 
     public String lista() {
-        return "cliente/index.xhtml";
+        return "cliente/index.xhtml?faces-redirect=true";
     }
 
     public String cadastra() {
@@ -31,8 +36,21 @@ public class ClienteBean implements Serializable {
 
     public String salva() {
         ClienteDAO dao = new ClienteDAO();
+        PapelDAO papelDAO = new PapelDAO();
+        
+        cliente.setSenha(encoder.encode(cliente.getSenha()));
+        cliente.setAtivo(1);
+        
+        
+        Papel p1 = new Papel();
+        p1.setNome("ROLE_CLIENTE");
+        papelDAO.save(p1);
+        
+        
         if (cliente.getId() == null) {
             dao.save(cliente);
+            cliente.getPapel().add(p1);
+            dao.update(cliente);
         } else {
             dao.update(cliente);
         }

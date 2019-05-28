@@ -21,7 +21,7 @@ public class Cliente extends Usuario implements Serializable {
     }
 
   
-    public void setId_cliente(Long id) {
+    public void setId(Long id) {
         this.id= id;
     }
 
