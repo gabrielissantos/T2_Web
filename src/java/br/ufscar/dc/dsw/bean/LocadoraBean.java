@@ -110,15 +110,15 @@ public class LocadoraBean implements Serializable {
         return locadora;
     }
 
-    public List<Locadora> autoComplete(String query) {
+    public List<String> autoComplete(String query) {
         LocadoraDAO dao = new LocadoraDAO();
         List<Locadora> locadoras = dao.getAll();
-        List<Locadora> filteredCidades = new ArrayList<Locadora>();
+        List<String> filteredCidades = new ArrayList<>();
 
         for (int i = 0; i < locadoras.size(); i++) {
             Locadora skin = locadoras.get(i);
             if (skin.getCidade().toLowerCase().contains(query)) {
-                filteredCidades.add(skin);
+                filteredCidades.add(skin.getCidade());
             }
         }
 

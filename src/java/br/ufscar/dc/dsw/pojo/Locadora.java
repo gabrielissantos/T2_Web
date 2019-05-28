@@ -27,6 +27,10 @@ public class Locadora extends Usuario implements Serializable {
     
     private String cidade;
 
+    
+    public String toString(){
+        return nome;
+    }
  
     @Override
     public Long getId() {
