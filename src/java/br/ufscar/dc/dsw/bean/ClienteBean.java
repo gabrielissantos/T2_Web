@@ -20,7 +20,7 @@ public class ClienteBean implements Serializable {
     private Cliente cliente;
 
     public String lista() {
-        return "cliente/index.xhtml";
+        return "cliente/index.xhtml?faces-redirect=true";
     }
 
     public String cadastra() {
