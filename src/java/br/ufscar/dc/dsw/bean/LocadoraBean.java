@@ -87,7 +87,7 @@ public class LocadoraBean implements Serializable {
 
     public List<Locadora> getLocadoras() throws SQLException {
         LocadoraDAO dao = new LocadoraDAO();
-        if (cidade == null || cidade.equals(" ")) {
+        if (cidade == null || cidade.equals(" ") || cidade.equals("Selecione") ) {
             return dao.getAll();
         } else {
             return dao.getbyCidade(cidade);
@@ -115,13 +115,13 @@ public class LocadoraBean implements Serializable {
         List<Locadora> locadoras = dao.getAll();
         List<String> filteredCidades = new ArrayList<>();
 
+        filteredCidades.add("Selecione");
         for (int i = 0; i < locadoras.size(); i++) {
             Locadora skin = locadoras.get(i);
             if (skin.getCidade().toLowerCase().contains(query)) {
                 filteredCidades.add(skin.getCidade());
-            }
+            }          
         }
-
         return filteredCidades;
     }
 
