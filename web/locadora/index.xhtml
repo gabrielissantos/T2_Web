@@ -27,14 +27,14 @@
             <h:commandButton value="Pesquisar" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
                                          style="width: 80px;"></h:commandButton> 
             -->
-            
+
             <p:outputLabel value="Pesquisar por cidade:" for="filter_cidade" />
-        <p:autoComplete id="filter_cidade" dropdown="true" value="#{locadoraBean.cidade}" completeMethod="#{locadoraBean.autoComplete}" />
-        <br/>
-        <h:commandButton value="Pesquisar" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
-                                         style="width: 80px;"></h:commandButton> 
-        
-            
+            <p:autoComplete id="filter_cidade" dropdown="true" value="#{locadoraBean.cidade}" completeMethod="#{locadoraBean.autoComplete}" />
+            <br/>
+            <h:commandButton value="Pesquisar" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
+                             style="width: 80px;"></h:commandButton> 
+
+
             <h:dataTable value="#{locadoraBean.locadoras}" var="locadora"   
                          class="table table-striped table-hover table-bordered">  
                 <h:column>  
@@ -59,29 +59,33 @@
                     <h:outputText value="#{locadora.cidade}"/>  
                 </h:column> 
 
-                <h:column>  
-		    <sec:authorize ifAllGranted="ROLE_ADMIN">
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locadoraBean.edita(locadora.id)}" value="#{msg['store.edit.command.label']}"  class="btn btn-primary">  
-                    </h:commandButton>  
-		    </sec:authorize>
-                </h:column>  
-                <h:column>  
-		    <sec:authorize ifAllGranted="ROLE_ADMIN">
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locadoraBean.delete(locadora)}" value="#{msg['store.delete.command.label']}" 
-                                     onclick="return confirm('#{msg['confirm.delete']}');"
-                                     class="btn btn-danger">  
-                    </h:commandButton>  
-            	    </sec:authorize>
-                </h:column>  
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
+                    <h:column>  
+
+                        <f:facet name="header"></f:facet>  
+                        <h:commandButton action = "#{locadoraBean.edita(locadora.id)}" value="#{msg['store.edit.command.label']}"  class="btn btn-primary">  
+                        </h:commandButton>  
+
+                    </h:column>  
+                </sec:authorize>
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
+                    <h:column>  
+
+                        <f:facet name="header"></f:facet>  
+                        <h:commandButton action = "#{locadoraBean.delete(locadora)}" value="#{msg['store.delete.command.label']}" 
+                                         onclick="return confirm('#{msg['confirm.delete']}');"
+                                         class="btn btn-danger">  
+                        </h:commandButton>  
+
+                    </h:column>  
+                </sec:authorize>
             </h:dataTable>
             <center>
-		<sec:authorize ifAllGranted="ROLE_ADMIN">
-                <h:commandButton action = "#{locadoraBean.cadastra()}"   
-                                 value="#{msg['store.create.command.label']}"  class="btn btn-primary"></h:commandButton>
-            	</sec:authorize>
-	    </center>
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
+                    <h:commandButton action = "#{locadoraBean.cadastra()}"   
+                                     value="#{msg['store.create.command.label']}"  class="btn btn-primary"></h:commandButton>
+                </sec:authorize>
+            </center>
             <br/>
             <center>
                 <h:commandButton action = "#{locadoraBean.volta()}"   
