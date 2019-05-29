@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"  
       xmlns:h="http://xmlns.jcp.org/jsf/html"  
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/tags">  
     <h:head>  
         <title>#{msg['location.list.page.title']}</title>
         <link rel="stylesheet" 
@@ -21,41 +22,41 @@
             <!-- Aqui deve vir o dropdown de locadoras
 
             Tabela de variaveis deveria começar a aparecer -->
-            
+
             <h:dataTable value="#{locacaoBean.locacoes}" var="locacao"   
                          class="table table-striped table-hover table-bordered">  
                 <h:column>  
                     <f:facet name="header">#{msg['location.id.label']}</f:facet>  
                     <h:outputText value="#{locacao.id}"/>  
                 </h:column>  
-                 
-                  
+
+
 
                 <h:column>  
                     <f:facet name="header">#{msg['store.cnpj.label']}</f:facet>  
                     <h:outputText value="#{locadora.cnpj}"/>  
                 </h:column>  
-                
+
                 <h:column>  
                     <f:facet name="header">#{msg['store.name.label']}</f:facet>  
                     <h:outputText value="#{locadora.nomej}"/>  
                 </h:column>  
-                
-               <h:column>  
+
+                <h:column>  
                     <f:facet name="header">#{msg['client.cpf.label']}</f:facet>  
                     <h:outputText value="#{cliente.cpf}"/>  
                 </h:column>  
-                
+
                 <h:column>  
                     <f:facet name="header">#{msg['client.name.label']}</f:facet>  
                     <h:outputText value="#{cliente.nome}"/>  
                 </h:column>  
-                
+
                 <h:column>  
                     <f:facet name="header">#{msg['location.date.label']}</f:facet>  
                     <h:outputText value="#{locacao.data}"/>  
                 </h:column>  
-                
+
                 <h:column>  
                     <f:facet name="header">#{msg['location.hour.label']}</f:facet>  
                     <h:outputText value="#{locacao.hora}"/>  
@@ -75,8 +76,14 @@
                 </h:column>  
             </h:dataTable>
             <center>
-                <h:commandButton action = "#{locacaoBean.cadastra()}"   
-                                 value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
+                    <h:commandButton action = "#{locacaoBean.cadastra()}"   
+                                     value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
+                </sec:authorize>
+                <sec:authorize ifAllGranted="ROLE_CLIENTE">
+                    <h:commandButton action = "#{locacaoBean.cadastra()}"   
+                                     value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
+                </sec:authorize>
             </center>
             <br/>
             <center>
