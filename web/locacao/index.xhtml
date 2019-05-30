@@ -19,38 +19,27 @@
                 <h2><h:outputText value="#{msg['location.list.page.title']}"/></h2>  
             </center> 
 
-            <!-- Aqui deve vir o dropdown de locadoras
-
-            Tabela de variaveis deveria começar a aparecer -->
+          
 
             <h:dataTable value="#{locacaoBean.locacoes}" var="locacao"   
                          class="table table-striped table-hover table-bordered">  
-                <h:column>  
-                    <f:facet name="header">#{msg['location.id.label']}</f:facet>  
-                    <h:outputText value="#{locacao.id}"/>  
-                </h:column>  
+               
 
-
-
+                <sec:authorize ifAllGranted="ROLE_CLIENTE"> 
                 <h:column>  
                     <f:facet name="header">#{msg['store.cnpj.label']}</f:facet>  
-                    <h:outputText value="#{locadora.cnpj}"/>  
+                    <h:outputText value="#{locacao.cnpj}"/>  
                 </h:column>  
+                </sec:authorize> 
 
-                <h:column>  
-                    <f:facet name="header">#{msg['store.name.label']}</f:facet>  
-                    <h:outputText value="#{locadora.nomej}"/>  
-                </h:column>  
-
+                <sec:authorize ifAllGranted="ROLE_LOCADORA"> 
                 <h:column>  
                     <f:facet name="header">#{msg['client.cpf.label']}</f:facet>  
-                    <h:outputText value="#{cliente.cpf}"/>  
+                    <h:outputText value="#{locacao.cpf}"/>  
                 </h:column>  
+                 </sec:authorize> 
 
-                <h:column>  
-                    <f:facet name="header">#{msg['client.name.label']}</f:facet>  
-                    <h:outputText value="#{cliente.nome}"/>  
-                </h:column>  
+               
 
                 <h:column>  
                     <f:facet name="header">#{msg['location.date.label']}</f:facet>  
@@ -62,18 +51,7 @@
                     <h:outputText value="#{locacao.hora}"/>  
                 </h:column>  
 
-                <h:column>  
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locacaoBean.edita(locacao.id)}" value="#{msg['location.edit.command.label']}"  class="btn btn-primary">  
-                    </h:commandButton>  
-                </h:column>  
-                <h:column>  
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locacaoBean.delete(locacao)}" value="#{msg['location.delete.command.label']}" 
-                                     onclick="return confirm('#{msg['confirm.delete']}');"
-                                     class="btn btn-danger">  
-                    </h:commandButton>  
-                </h:column>  
+               
             </h:dataTable>
             <center>
                 <sec:authorize ifAllGranted="ROLE_ADMIN">
