@@ -8,32 +8,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <!-- <sec:authorize ifAllGranted="ROLE_ADMIN">
- 
-                 Este conteúdo só será visível para usuários que desempenhem 
-                 o papel "ADMIN" <br/><br/>
- 
-                 <h:commandLink action="admin/index">Área de Administrador</h:commandLink>
-             
-             </sec:authorize>
- 
-             <sec:authorize ifAllGranted="ROLE_USER">
-                 Este conteúdo só será visível para usuários que desempenhem 
-                 o papel "USER" <br/><br/>
- 
-                 <h:commandLink action="user/index">Área de Usuário</h:commandLink>
-                 
-             </sec:authorize>    -->  
-                <h:commandLink action="#{clienteBean.lista()}">#{msg['client.label']}:  CRUD</h:commandLink><br/>
-                <h:commandLink action="#{locadoraBean.lista()}">#{msg['store.label']}:  CRUD</h:commandLink><br/>
-                <h:commandLink action="#{locacaoBean.lista()}">#{msg['location.label']}:  CRUD</h:commandLink><br/>
-       
-
-
-
+            <h:commandLink action="#{clienteBean.lista()}">#{msg['client.label']}:  CRUD</h:commandLink><br/>
+            <h:commandLink action="#{locadoraBean.lista()}">#{msg['store.label']}:  CRUD</h:commandLink><br/>
+            <h:commandLink action="#{locacaoBean.lista()}">#{msg['location.label']}:  CRUD</h:commandLink><br/>
         </h:form>
         <a href="#{request.contextPath}/logout">Logout</a>
     </h:body> 
-
-
 </html>
