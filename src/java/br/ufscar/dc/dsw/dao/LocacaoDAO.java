@@ -5,11 +5,13 @@
  */
 package br.ufscar.dc.dsw.dao;
 import br.ufscar.dc.dsw.pojo.Locacao;
+import br.ufscar.dc.dsw.pojo.Locadora;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -38,9 +40,16 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
         return locacoes;
     }
     //Listar locacao por cliente
-    public List<Locacao> getbyCliente(String cliente) {
+    public List<Locacao> getByCliente(String cpf) {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from Locacao l where l.cliente = '"+cliente+"'", Locacao.class);
+        Query q = em.createQuery("select l from Locacao l where l.cpf = '"+cpf+"'", Locacao.class);
+        List<Locacao> locacoes = q.getResultList();
+        em.close();
+        return locacoes;
+    }
+    public List<Locacao> getByLocadora(String cnpj) {
+        EntityManager em = this.getEntityManager();
+        Query q = em.createQuery("select l from Locacao l where l.cnpj = '"+cnpj+"'", Locacao.class);
         List<Locacao> locacoes = q.getResultList();
         em.close();
         return locacoes;
