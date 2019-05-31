@@ -62,24 +62,23 @@
                     <h:outputText value="#{locacao.hora}"/>  
                 </h:column>  
 
-                <h:column>  
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locacaoBean.edita(locacao.id)}" value="#{msg['location.edit.command.label']}"  class="btn btn-primary">  
-                    </h:commandButton>  
-                </h:column>  
-                <h:column>  
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{locacaoBean.delete(locacao)}" value="#{msg['location.delete.command.label']}" 
-                                     onclick="return confirm('#{msg['confirm.delete']}');"
-                                     class="btn btn-danger">  
-                    </h:commandButton>  
-                </h:column>  
+                <sec:authorize ifAllGranted="ROLE_CLIENTE">
+                    <h:column>  
+                        <f:facet name="header"></f:facet>  
+                        <h:commandButton action = "#{locacaoBean.edita(locacao.id)}" value="#{msg['location.edit.command.label']}"  class="btn btn-primary">  
+                        </h:commandButton>  
+                    </h:column>  
+                    <h:column>  
+                        <f:facet name="header"></f:facet>  
+                        <h:commandButton action = "#{locacaoBean.delete(locacao)}" value="#{msg['location.delete.command.label']}" 
+                                         onclick="return confirm('#{msg['confirm.delete']}');"
+                                         class="btn btn-danger">  
+                        </h:commandButton>
+
+                    </h:column>
+                </sec:authorize>
             </h:dataTable>
             <center>
-                <sec:authorize ifAllGranted="ROLE_ADMIN">
-                    <h:commandButton action = "#{locacaoBean.cadastra()}"   
-                                     value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
-                </sec:authorize>
                 <sec:authorize ifAllGranted="ROLE_CLIENTE">
                     <h:commandButton action = "#{locacaoBean.cadastra()}"   
                                      value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
