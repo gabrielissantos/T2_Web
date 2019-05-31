@@ -54,10 +54,6 @@
                
             </h:dataTable>
             <center>
-                <sec:authorize ifAllGranted="ROLE_ADMIN">
-                    <h:commandButton action = "#{locacaoBean.cadastra()}"   
-                                     value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
-                </sec:authorize>
                 <sec:authorize ifAllGranted="ROLE_CLIENTE">
                     <h:commandButton action = "#{locacaoBean.cadastra()}"   
                                      value="#{msg['location.create.command.label']}"  class="btn btn-primary"></h:commandButton>
