@@ -8,23 +8,12 @@ import javax.persistence.Entity;
 @Cacheable(value = false)
 public class Cliente extends Usuario implements Serializable {
 
-    private Long id;
     private String cpf;
     private String nome;
     private String telefone;
     private String sexo;
     private String nascimento;
-
-     @Override
-    public Long getId() {
-        return super.getId();
-    }
-
-  
-    public void setId(Long id) {
-        this.id= id;
-    }
-
+    
     public String getCpf() {
         return cpf;
     }

@@ -12,6 +12,9 @@ import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Query;
 
 /**
@@ -22,20 +25,20 @@ import javax.persistence.Query;
 
 @Entity
 @Cacheable(value = false)
-public class Locacao extends Usuario implements Serializable {
+public class Locacao implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String data;
     private String hora;
     private String cpf;
     private String cnpj;
 
-    
-     @Override
     public Long getId() {
-        return super.getId();
+        return id;
     }
     
-    @Override
     public void setId(Long id) {
         this.id = id;
     }

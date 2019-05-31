@@ -19,14 +19,7 @@
                 <h2><h:outputText value="#{msg['store.list.page.title']}"/></h2>  
             </center> 
 
-            <!--<h:outputLabel for="filtro" value="Filtrar por cidade" />
-            <p:inputText id="filtro" value="{locadoraBean.cidade}" required="true" label="Cidade">
-                <f:validateLength minimum="2" />
-            </p:inputText>
-            
-            <h:commandButton value="Pesquisar" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
-                                         style="width: 80px;"></h:commandButton> 
-            -->
+          
 
             <p:outputLabel value="Pesquisar por cidade:" for="filter_cidade" />
             <p:autoComplete id="filter_cidade" dropdown="true" value="#{locadoraBean.cidade}" completeMethod="#{locadoraBean.autoComplete}" />

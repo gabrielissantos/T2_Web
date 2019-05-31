@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 public class ClienteDAO extends GenericDAO<Cliente>{
     
@@ -54,6 +55,16 @@ public class ClienteDAO extends GenericDAO<Cliente>{
         em.close();
         return cliente;
     } 
-    
+    public Cliente getbyEmail(String email) {
+        Cliente cliente = null;
+        EntityManager em = this.getEntityManager();
+        TypedQuery<Cliente> q = em.createQuery("select c from Cliente c where c.email = '" + email + "'", Cliente.class);
+        List<Cliente> clientes = q.getResultList();
+        em.close();
+        if (clientes.size() > 0) {
+            cliente = clientes.get(0);
+        }
+        return cliente;
+    }
     
 }

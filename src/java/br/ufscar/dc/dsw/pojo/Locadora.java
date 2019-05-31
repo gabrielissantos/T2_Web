@@ -19,8 +19,6 @@ import javax.persistence.Entity;
 public class Locadora extends Usuario implements Serializable {
     
     
-    private Long id;
-    
     private String cnpj;
     
     private String nome;
@@ -32,16 +30,6 @@ public class Locadora extends Usuario implements Serializable {
         return nome;
     }
  
-    @Override
-    public Long getId() {
-        return super.getId();
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getCnpj() {
         return cnpj;
     }

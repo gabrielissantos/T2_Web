@@ -12,7 +12,8 @@
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
               crossorigin="anonymous"/>  
     </h:head>  
-    <h:body>  
+    <h:body> 
+        <h:messages globalOnly="false"/>
         <h:form id="form" class="form-horizontal">  
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
@@ -21,52 +22,35 @@
                 </div>  
             </div>  
             <hr/> 
+    
             <div class="form-group">  
-                <h:outputLabel for="email" class="control-label col-sm-4">#{msg['store.email.label']}</h:outputLabel>  
-                <div class="col-sm-4">  
-                    <h:inputText id="email" value="#{locadoraBean.locadora.email}" class="form-control"   
-                                 validatorMessage="#{msg['store.email.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
-                    <h:message for="email"/>
+                <h:outputLabel for="nome" class="control-label col-sm-4">#{msg['location.select.command.label']}</h:outputLabel>  
+                <div class="col-sm-4">                    
+                    <p:selectOneMenu id="nome" value="#{locacaoBean.locacao.cnpj}" style="width:125px">           
+                        <f:selectItems value="#{locadoraBean.getNomeLocadora()}" />
+                    </p:selectOneMenu>
                 </div>  
-            </div>  
+            </div>
+            
+            
             <div class="form-group">  
-                <h:outputLabel for="password" class="control-label col-sm-4">#{msg['store.password.label']}</h:outputLabel>  
+                <h:outputLabel for="hora" class="control-label col-sm-4">#{msg['location.hour.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="password" value="#{locadoraBean.locadora.senha}" class="form-control"   
-                                 validatorMessage="#{msg['store.password.required.message']}" a:type="password">
-                        <f:validateRequired/>
-                    </h:inputText>  
-                    <h:message for="password"/>
+                     <p:inputMask id="hora" value="#{locacaoBean.locacao.hora}" class="form-control"  mask="99:99"  
+                                 validatorMessage="#{msg['location.hour.required.message']}"/>
+                    
+                      
+                    <h:message for="hora"/>
                 </div>  
             </div>
             <div class="form-group">  
-                <h:outputLabel for="cnpj" class="control-label col-sm-4">#{msg['store.cnpj.label']}</h:outputLabel>  
-                <div class="col-sm-4">   
-                    <p:inputMask id="cnpj" value="#{locacaoBean.locacao.cnpj}" class="form-control" mask="99.999.999/9999-99"  
-                                 validatorMessage="#{msg['store.cnpj.required.message']}"/>
-                     <h:message for="cnpj"/>
-                </div>  
-            </div>
-            <div class="form-group">  
-                <h:outputLabel for="name" class="control-label col-sm-4">#{msg['store.name.label']}</h:outputLabel>  
+                <h:outputLabel for="data" class="control-label col-sm-4">#{msg['location.date.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="name" value="#{locadoraBean.locadora.nome}" class="form-control"   
-                                 validatorMessage="#{msg['store.name.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
-                    <h:message for="name"/>
-                </div>  
-            </div>
-            <div class="form-group">  
-                <h:outputLabel for="city" class="control-label col-sm-4">#{msg['store.city.label']}</h:outputLabel>  
-                <div class="col-sm-4">  
-                    <h:inputText id="city" value="#{locadoraBean.locadora.cidade}" class="form-control"   
-                                 validatorMessage="#{msg['store.city.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>  
-                    <h:message for="city"/>
+                    <p:inputMask  id="data" value="#{locacaoBean.locacao.data}" class="form-control" mask="99/99/9999"  
+                                 validatorMessage="#{msg['location.date.required.message']}"/>
+                 
+                    
+                    <h:message for="data"/>
                 </div>  
             </div>
            

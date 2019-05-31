@@ -27,7 +27,7 @@
                     <f:facet name="header">#{msg['client.email.label']}</f:facet>  
                     <h:outputText value="#{cliente.email}"/>  
                 </h:column>  
-               
+
                 <h:column>  
                     <f:facet name="header">#{msg['client.cpf.label']}</f:facet>  
                     <h:outputText value="#{cliente.cpf}"/>  
@@ -48,28 +48,32 @@
                     <f:facet name="header">#{msg['client.birth.label']}</f:facet>  
                     <h:outputText value="#{cliente.nascimento}"/>  
                 </h:column> 
-                <h:column>
-		    <sec:authorize ifAllGranted="ROLE_ADMIN">  
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{clienteBean.edita(cliente.id)}" value="#{msg['client.edit.command.label']}"  class="btn btn-primary">  
-                    </h:commandButton> 
-		    </sec:authorize> 
-                </h:column>  
-                <h:column>  
-		    <sec:authorize ifAllGranted="ROLE_ADMIN"> 
-                    <f:facet name="header"></f:facet>  
-                    <h:commandButton action = "#{clienteBean.delete(cliente)}" value="#{msg['client.delete.command.label']}" 
-                                     onclick="return confirm('#{msg['confirm.delete']}');"
-                                     class="btn btn-danger">  
-                    </h:commandButton> 
-		    </sec:authorize>  
-                </h:column>  
+                <sec:authorize ifAllGranted="ROLE_ADMIN">  
+                    <h:column>
+
+                        <f:facet name="header"></f:facet>  
+                        <h:commandButton action = "#{clienteBean.edita(cliente.id)}" value="#{msg['client.edit.command.label']}"  class="btn btn-primary">  
+                        </h:commandButton> 
+
+                    </h:column> 
+                </sec:authorize> 
+                <sec:authorize ifAllGranted="ROLE_ADMIN"> 
+                    <h:column>  
+
+                        <f:facet name="header"></f:facet>  
+                        <h:commandButton action = "#{clienteBean.delete(cliente)}" value="#{msg['client.delete.command.label']}" 
+                                         onclick="return confirm('#{msg['confirm.delete']}');"
+                                         class="btn btn-danger">  
+                        </h:commandButton> 
+
+                    </h:column>  
+                </sec:authorize>  
             </h:dataTable>
             <center>
-		<sec:authorize ifAllGranted="ROLE_ADMIN"> 
-                <h:commandButton action = "#{clienteBean.cadastra()}"   
-                                 value="#{msg['client.create.command.label']}"  class="btn btn-primary"></h:commandButton>
-		</sec:authorize> 
+                <sec:authorize ifAllGranted="ROLE_ADMIN"> 
+                    <h:commandButton action = "#{clienteBean.cadastra()}"   
+                                     value="#{msg['client.create.command.label']}"  class="btn btn-primary"></h:commandButton>
+                </sec:authorize> 
             </center>
             <br/>
             <center>

@@ -9,12 +9,14 @@ package br.ufscar.dc.dsw.dao;
  *
  * @author Bianca
  */
+import br.ufscar.dc.dsw.pojo.Cliente;
 import br.ufscar.dc.dsw.pojo.Locadora;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 public class LocadoraDAO extends GenericDAO<Locadora> {
 
@@ -39,11 +41,23 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         return locadoras;
     }
 
-   public List<Locadora> getbyCidade(String cidade) {
+    public List<Locadora> getbyCidade(String cidade) {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from Locadora l where l.cidade = '"+cidade+"'", Locadora.class);
+        Query q = em.createQuery("select l from Locadora l where l.cidade = '" + cidade + "'", Locadora.class);
         List<Locadora> locadora = q.getResultList();
         em.close();
+        return locadora;
+    }
+
+    public Locadora getbyEmail(String email) {
+        Locadora locadora = null;
+        EntityManager em = this.getEntityManager();
+        TypedQuery<Locadora> q = em.createQuery("select l from Locadora l where l.email = '" + email + "'", Locadora.class);
+        List<Locadora> locadoras = q.getResultList();
+        em.close();
+        if (locadoras.size() > 0) {
+            locadora = locadoras.get(0);
+        }
         return locadora;
     }
 

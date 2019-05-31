@@ -93,6 +93,7 @@ public class LocadoraBean implements Serializable {
             return dao.getbyCidade(cidade);
         }
     }
+    
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
@@ -100,6 +101,18 @@ public class LocadoraBean implements Serializable {
 
     public String getCidade() {
         return cidade;
+    }
+    
+    public List<String> getNomeLocadora() throws SQLException {
+        LocadoraDAO dao = new LocadoraDAO();
+        List<Locadora> locadoras = dao.getAll();
+        ArrayList<String> nomeLocadoras = new ArrayList();
+
+        for (int i = 0; i < locadoras.size(); i++) {
+            nomeLocadoras.add(i, locadoras.get(i).getNome());
+        }
+
+        return nomeLocadoras;
     }
 
 //     public List<Locadora> getLocadorabyCidade() throws SQLException {
