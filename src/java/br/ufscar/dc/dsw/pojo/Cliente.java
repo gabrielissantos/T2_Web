@@ -22,6 +22,7 @@ public class Cliente extends Usuario implements Serializable {
         return super.getId();
     }
 
+    @Override
     public void setId(Long id) {
         this.id= id;
     }
