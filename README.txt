@@ -11,3 +11,6 @@ ser executado.
 
 Login do administrador: admin@admin
 Senha: admin
+
+Algumas alterações foram feitas no Trabalho 1, segue o link do repositório onde se encontram:
+https://github.com/bigarcia/webdevelopment
