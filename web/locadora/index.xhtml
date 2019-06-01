@@ -21,11 +21,12 @@
 
           
 
-            <p:outputLabel value="Pesquisar por cidade:" for="filter_cidade" />
-            <p:autoComplete id="filter_cidade" dropdown="true" value="#{locadoraBean.cidade}" completeMethod="#{locadoraBean.autoComplete}" />
-            <br/>
-            <h:commandButton value="Pesquisar" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
-                             style="width: 80px;"></h:commandButton> 
+            
+            <p:outputLabel value="#{msg['filter.city']}" for="filter_cidade" />
+            <p:autoComplete id="filter_cidade" dropdown="true"   style="margin-left: 8px;" value="#{locadoraBean.cidade}" completeMethod="#{locadoraBean.autoComplete}" />
+            <h:commandButton value="#{msg['filter']}" action="{locadoraBean.listaCidade()}" class="btn btn-primary"   
+                             style="width: 100px; margin-left: 50px;"></h:commandButton> 
+        
 
 
             <h:dataTable value="#{locadoraBean.locadoras}" var="locadora"   
