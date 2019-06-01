@@ -36,8 +36,9 @@
             <div class="form-group">  
                 <h:outputLabel for="hora" class="control-label col-sm-4">#{msg['location.hour.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                     <p:inputMask id="hora" value="#{locacaoBean.locacao.hora}" class="form-control"  mask="99:99"  
+                     <p:inputMask id="hora" value="#{locacaoBean.locacao.hora}" class="form-control"  mask="99:00"  
                                  validatorMessage="#{msg['location.hour.required.message']}"/>
+                  
                     
                       
                     <h:message for="hora"/>
