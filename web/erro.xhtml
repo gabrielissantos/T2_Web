@@ -8,8 +8,9 @@
     <h:body>
         <h:form>
             <h1>#{msg['error']}</h1><br />
-            <p>#{msg['error.message.1']}</p>
-            <p>#{msg['error.message.2']}</p>
+            <h:outputText value="#{msg['error.message.1']}" /> <br />
+             <h:outputText value="#{msg['error.message.2']}" />
+
         </h:form>
     </h:body> 
 </html>
