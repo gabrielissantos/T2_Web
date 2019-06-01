@@ -3,9 +3,12 @@ package br.ufscar.dc.dsw.pojo;
 import java.io.Serializable;
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Cacheable(value = false)
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"})})
 public class Cliente extends Usuario implements Serializable {
 
     private String cpf;
@@ -13,7 +16,17 @@ public class Cliente extends Usuario implements Serializable {
     private String telefone;
     private String sexo;
     private String nascimento;
-    
+
+     @Override
+    public Long getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id= id;
+    }
+
     public String getCpf() {
         return cpf;
     }
